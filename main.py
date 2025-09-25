@@ -1,11 +1,9 @@
 """Accept csv-files with student scores and generate the average scores."""
 import argparse
 import csv
-from tabulate import tabulate
 from typing import Any, Dict, List
 
-# Length of data in csv files.
-CSV_DATA_LENGTH = 5
+from tabulate import tabulate
 
 
 class GradesMixin:
@@ -145,9 +143,9 @@ def save_to_csv(
             writer.writerow(headers)
             for row in data:
                 writer.writerow(row)
-        print(f"Данные успешно сохранены в файл {filename}")
+        print(f"Results are saved successfully {filename}")
     except Exception as e:
-        print(f"Произошла ошибка: {str(e)}")
+        print(f"Error: {str(e)}")
 
 
 def main():
@@ -155,7 +153,7 @@ def main():
     args = parse_arguments()
     subjects, teachers, students, grades = csv_files_to_objects(args.files)
 
-    # === Здесь устанавливаем по какой модели группировка оценок.===========
+    # === Set the model to group the grades. ===========
     model = subjects  # subjects / teachers / students
 
     sorted_model = sorted(
