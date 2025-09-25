@@ -154,7 +154,7 @@ def main():
     subjects, teachers, students, grades = csv_files_to_objects(args.files)
 
     # === Set the model to group the grades. ===========
-    model = subjects  # subjects / teachers / students
+    model = students  # subjects / teachers / students
 
     sorted_model = sorted(
         model.values(),
